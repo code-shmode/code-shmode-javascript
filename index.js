@@ -37,10 +37,10 @@ try {
 
 				content = content.replace(title, "").trim();
 
-				content = content.replace(/```js.*?```/g, "");
-
 				console.log(content);
 			}
+
+			content = content.replace(/```js.*?```/g, "");
 
 			const object = {
 				objectID,
