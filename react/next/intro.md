@@ -177,7 +177,7 @@ export default function Layout(props) {
 			<NextHead>
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 			</NextHead>
-			<Navbar bg="dark" variant="dark" expand="lg">
+			<Navbar bg="dark" variant="dark" expand="lg"d>
 				<Link href="/">
 					<a>
 						<Navbar.Brand>Next Intro</Navbar.Brand>
