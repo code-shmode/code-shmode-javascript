@@ -378,6 +378,6 @@ export async function getStaticProps() {
 		},
 	};
 }
-```
+``` 
 
 The complete code on this page can be in the <a href="https://github.com/code-shmode/nextjs-intro" target="_blank">repo</a>.

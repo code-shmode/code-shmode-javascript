@@ -3,7 +3,7 @@
 Both these techniques create HTML on the server and send it to the browser. The difference lies in when the HTML is created.
 
 ## Static rendering
-
+ 
 Static rendering happens when the site is built.
 
 All pages that a user can visit must be known and the build process will fetch the data (usually from some kind of API) and build out the HTML with this data.
