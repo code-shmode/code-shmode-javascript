@@ -67,7 +67,7 @@ Page components are normal React components.
 
 `Head` is a component provided by `create-next-app` that we can use on each page to create the contents of the HTML `<head>` tags, such as the `title` tag and `description` meta tag. Above we are using the `title` prop to set the title of the index page to "Next Intro". Because Next provides SSR, these values are easier found by search bots, improving your site's SEO.
 
-It utilises a component imported from `next/head` to append elements to the `head` tag. We'll use this same component shortly.
+`Head` utilises a component imported from `next/head` to append elements to the `head` tag. We'll use this same component shortly.
 
 `Link` is a component provided by Next we can use to navigate around our app, similar to `NavLink` in React Router. The child of a link component must be an `a` tag. We are setting the `href` prop to `/about` which means clicking the link will navigate to `http://localhost:3000/about`. If you vist that page now you'll be greeted by Next's built-in 404 component.
 
@@ -83,7 +83,7 @@ import Head from "../components/head";
 export default function About() {
 	return (
 		<>
-			<Head title="About | Next.js Intro" />
+			<Head title="About | Next Intro" />
 
 			<Link href="/">
 				<a>Home</a>
@@ -154,23 +154,11 @@ Next we'll add the navbar below the `NextHead`:
 </Navbar>
 ```
 
-We need to render what we want wrapped in this layout. Add the following below the `Navbar`:
+We need to render what we want wrapped in this layout using the `children` prop. Add the following below the `Navbar`:
 
 ```js
 <Container>{props.children}</Container>
 ```
-
-`props.children` is used to display whatever you include between the opening and closing tags of a component. You will see how this works when we add this `Layout` component to our pages.
-
-Finally, add the prop type check below the function:
-
-```js
-Layout.propTypes = {
-	children: PropTypes.node.isRequired,
-};
-```
-
-We want `children` to be a `node`, not another type like string or number. The list of prop types can be found in the <a href="https://reactjs.org/docs/typechecking-with-proptypes.html" target="_blank">official docs</a>.
 
 Full code for `Layout.js`:
 
@@ -215,10 +203,6 @@ export default function Layout(props) {
 		</>
 	);
 }
-
-Layout.propTypes = {
-	children: PropTypes.node.isRequired,
-};
 ```
 
 ### Including the layout in pages
@@ -278,21 +262,11 @@ yarn add axios
 
 Next provides two different kinds of pre-rendering: static generation and server-side rendering. You can read more about the differences between those terms [here](/server/faq/static-vs-server-side-rendering).
 
-For each page you can choose whether to staticly generate it or server-side render it. To do the former you would use the async function `getStaticProps`, and for the latter you'd use the `getServerSideProps` async function.
+For each page in a Next app you can choose whether to staticly generate it or server-side render it. To do the former you would use the async function `getStaticProps`, and for the latter you'd use the `getServerSideProps` async function.
 
 In this example we will use `getStaticProps`.
 
 To use it we need to export it from the same file our page function is in.
-
-<!-- In `pages/index.js`, import `axios` and `BASE_URL` and add the following:
-
-```js
-
-```
-
-
-
-In Next, an asynchronous function called `getInitialProps` is where API calls are made. With this function, we can fetch data using an API call and pass it as props to the page. `getInitialProps` only works in page components. -->
 
 In `pages/index.js`, import `axios` and `BASE_URL`:
 
@@ -329,11 +303,11 @@ export async function getStaticProps() {
 }
 ```
 
-Inside this the `getStaticProps` function we are using `axios` to make the API call. The return value from the API can be found on the `response.data` property. Logging this value will display the results in your editor's terminal, not the browser. This is because this call is happening on the server.
+Inside this `getStaticProps` function we are using `axios` to make the API call. The return value from the API can be found on the `response.data` property. Logging this value will display the results in your editor's terminal, not the browser. This is because this call is happening on the "server".
 
 We return an object from the function with a property of `props` that will become the `props` object that gets passed into our `Index` component.
 
-Change the Index component to accept `props` as an argument and this time when we `console.log` the data will be displayed in the browser console, i.e. on the client side.
+Change the Index component to accept `props` as an argument and this time when we use `console.log` the data will be displayed in the browser console, i.e. on the client side.
 
 This is how `pages/index.js` will look now with the `about` link removed and a `map` over the `posts` prop to display each title:
 
@@ -380,4 +354,4 @@ export async function getStaticProps() {
 }
 ``` 
 
-The complete code on this page can be in the <a href="https://github.com/code-shmode/nextjs-intro" target="_blank">repo</a>.
+The complete code on this page can be found in the <a href="https://github.com/code-shmode/nextjs-intro" target="_blank">repo</a> in the `part-1` branch.
