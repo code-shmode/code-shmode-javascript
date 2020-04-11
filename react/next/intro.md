@@ -216,6 +216,7 @@ import React from "react";
 import Link from "next/link";
 import Head from "../components/head";
 import Layout from "../components/layout/Layout";
+s;
 
 export default function Index() {
 	return (
