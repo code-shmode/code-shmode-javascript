@@ -177,7 +177,7 @@ export default function Layout(props) {
 			<NextHead>
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 			</NextHead>
-			<Navbar bg="dark" variant="dark" expand="lg"d>
+			<Navbar bg="dark" variant="dark" expand="lg">
 				<Link href="/">
 					<a>
 						<Navbar.Brand>Next Intro</Navbar.Brand>
@@ -209,7 +209,7 @@ export default function Layout(props) {
 
 In both `pages/index.js` and `pages/about.js`, import the `Layout` component and replace the fragment tags `<></>` with this component.
 
-How `pages/index.js` should look noww: 
+How `pages/index.js` should look noww:
 
 ```js
 import React from "react";
@@ -342,16 +342,16 @@ export async function getStaticProps() {
 		console.log(response.data);
 		posts = response.data;
 	} catch (error) {
-		console.log(error); 
-	} 
+		console.log(error);
+	}
 
 	// the props object we return here will become the props in the component
 	return {
 		props: {
 			posts: posts,
 		},
-	}; 
+	};
 }
-``` 
+```
 
 The complete code on this page can be found in the <a href="https://github.com/code-shmode/nextjs-intro" target="_blank">repo</a> in the `part-1` branch.

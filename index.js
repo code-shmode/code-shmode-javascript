@@ -19,7 +19,7 @@ try {
 	const updatedFileArray = JSON.parse(updatedFiles);
 	const filesToUpdate = newFileArray.concat(updatedFileArray);
 
-	filesToUpdate.forEach(file => {
+	filesToUpdate.forEach((file) => {
 		if (
 			file.includes(".md") &&
 			!file.includes("README.md") &&
@@ -42,18 +42,20 @@ try {
 			const object = {
 				objectID,
 				title,
-				content
+				content,
 			};
 			data.push(object);
 		}
 	});
 
+	console.log("data", data);
+
 	index
 		.saveObjects(data)
-		.then(success => {
-			console.log(success);
+		.then((success) => {
+			console.log("SUCCESS", success);
 		})
-		.catch(err => {
+		.catch((err) => {
 			console.log("error adding/updating", err);
 		});
 
@@ -63,7 +65,7 @@ try {
 
 	const deletedData = [];
 
-	deletedFileArray.forEach(file => {
+	deletedFileArray.forEach((file) => {
 		const path = file.replace(".md", "");
 		const objectID = section + path;
 
@@ -72,10 +74,10 @@ try {
 
 	index
 		.deleteObjects(deletedData)
-		.then(success => {
-			console.log(success)
+		.then((success) => {
+			console.log(success);
 		})
-		.catch(err => {
+		.catch((err) => {
 			console.log("error deleting", err);
 		});
 } catch (error) {
