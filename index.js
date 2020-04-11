@@ -40,6 +40,8 @@ try {
 				console.log(content);
 			}
 
+			console.log("ndexOf", content.indexOf("```js"));
+
 			console.log("con bef", content.length);
 
 			content = content.replace(/```js.*?```/g, "");
@@ -55,7 +57,7 @@ try {
 		}
 	});
 
-	console.log("data", data);
+	// console.log("data", data);
 
 	index
 		.saveObjects(data)
