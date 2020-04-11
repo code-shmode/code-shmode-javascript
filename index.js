@@ -40,11 +40,13 @@ try {
 				console.log(content);
 			}
 
-			console.log("ndexOf", content.indexOf("```js"));
+			console.log("ndexOf ```js", content.indexOf("```js"));
+
+			console.log("ndexOf ```", content.indexOf("```"));
 
 			console.log("con bef", content.length);
 
-			content = content.replace(/```js.*```/, "");
+			content = content.replace(/```js.*```/g, "");
 
 			console.log("con after", content.length);
 
