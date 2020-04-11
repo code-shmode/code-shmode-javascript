@@ -40,7 +40,11 @@ try {
 				console.log(content);
 			}
 
+			console.log("con bef", content.length);
+
 			content = content.replace(/```js.*?```/g, "");
+
+			console.log("con after", content.length);
 
 			const object = {
 				objectID,
