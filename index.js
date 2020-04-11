@@ -42,7 +42,7 @@ try {
 
 			console.log("ndexOf ```js", content.indexOf("```js"));
 
-			console.log("ndexOf ```", content.indexOf("```"));
+			console.log("ndexOf ```", content.indexOf("```\n"));
 
 			console.log("con bef", content.length);
 
