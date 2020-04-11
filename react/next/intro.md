@@ -15,7 +15,7 @@ npx create-next-app nextjs-intro
 Change into that directory and start the app:
 
 ```js
-cd nextjs-intro s
+cd nextjs-intro
 yarn dev
 ```
 
