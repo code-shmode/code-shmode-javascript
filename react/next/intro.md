@@ -1,7 +1,5 @@
 # Introduction to Next.js
 
-The completed code for page can be found on [this branch](https://github.com/codes-shmode/).
-
 [Next.js](https://nextjs.org/) is a React framework that provides, amongst other things, pre-rendered pages, which will improve your site's SEO, and easy routing.
 
 Part 1 of the intro will cover routing basics and rendering an array of data fetched from an API.
@@ -381,3 +379,5 @@ export async function getStaticProps() {
 	};
 }
 ```
+
+The complete code on this page can be in the <a href="https://github.com/code-shmode/nextjs-intro" target="_blank">repo</a>.
