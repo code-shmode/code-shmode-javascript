@@ -160,7 +160,7 @@ We need to render what we want wrapped in this layout using the `children` prop.
 <Container>{props.children}</Container>
 ```
 
-Full code for `Layout.js`:
+Full code for `Layout.js`: s
 
 ```js
 import React from "react";
