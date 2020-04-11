@@ -12,7 +12,7 @@ Static rendering results in very fast delivery times for your content as there i
 
 This kind of rendering is suitable if your content doesn't change that often.
 
-Apart from occuring when your frontend source code changes, builds can be triggered when the data in your API changes. If you make a lot of content changes you may start to occur large build-time costs at your hosting providersss. 
+Apart from occuring when your frontend source code changes, builds can be triggered when the data in your API changes. If you make a lot of content changes you may start to occur large build-time costs at your hosting provider. 
 
 ## Server rendering
 

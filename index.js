@@ -10,9 +10,6 @@ try {
 	const newFiles = core.getInput("new-files");
 	const updatedFiles = core.getInput("updated-files");
 
-	console.log("newFiles", newFiles);
-	console.log("updatedFiles", updatedFiles);
-
 	const data = [];
 
 	const newFileArray = JSON.parse(newFiles);
@@ -48,9 +45,14 @@ try {
 		}
 	});
 
-	console.log("Data", data)
-
-	index.saveObjects(data)
+	index
+		.saveObjects(data)
+		.then(success => {
+			console.log(success);
+		})
+		.catch(err => {
+			console.log("error adding/updating", err);
+		});
 
 	// delete files
 	const deletedFiles = core.getInput("deleted-files");
@@ -65,8 +67,14 @@ try {
 		deletedData.push(objectID);
 	});
 
-	index.deleteObjects(deletedData)
-
+	index
+		.deleteObjects(deletedData)
+		.then(success => {
+			console.log(success)
+		})
+		.catch(err => {
+			console.log("error deleting", err);
+		});
 } catch (error) {
 	core.setFailed(error.message);
 }
