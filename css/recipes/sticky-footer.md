@@ -1,5 +1,7 @@
 # Sticky footer
 
+### HTML
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,8 @@
 </body>
 </html>
 ```
+
+### CSS
 
 ```css
 html,
