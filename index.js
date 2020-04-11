@@ -10,6 +10,9 @@ try {
 	const newFiles = core.getInput("new-files");
 	const updatedFiles = core.getInput("updated-files");
 
+	console.log("newFiles", newFiles);
+	console.log("updatedFiles", updatedFiles);
+
 	const data = [];
 
 	const newFileArray = JSON.parse(newFiles);

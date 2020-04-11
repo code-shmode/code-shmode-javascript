@@ -369,7 +369,7 @@ export async function getStaticProps() {
 		posts = response.data;
 	} catch (error) {
 		console.log(error);
-	}
+	} 
 
 	// the props object we return here will become the props in the component
 	return {

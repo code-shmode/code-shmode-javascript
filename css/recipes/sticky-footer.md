@@ -10,7 +10,7 @@
     <div class="container">
         All the content apart from the footer
     </div>
-    <footer>The footer</footer>
+    <footer>Footer</footer> 
 </body>
 </html>
 ```
