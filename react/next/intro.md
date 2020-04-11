@@ -1,10 +1,10 @@
 # Introduction to Next.js
 
-<!-- The completed code for page can be found on [this branch](https://github.com/codes-shmode/). -->
-
----
+The completed code for page can be found on [this branch](https://github.com/codes-shmode/).
 
 [Next.js](https://nextjs.org/) is a React framework that provides, amongst other things, pre-rendered pages, which will improve your site's SEO, and easy routing.
+
+Part 1 of the intro will cover routing basics and rendering an array of data fetched from an API.
 
 > This page uses yarn instead of npm. If you prefer using npm you can substitute `yarn` for `npm run` and `yarn add` for `npm install`.
 
@@ -286,7 +286,7 @@ In this example we will use `getStaticProps`.
 
 To use it we need to export it from the same file our page function is in.
 
-In `pages/index.js`, import `axios` and `BASE_URL` and add the following:
+<!-- In `pages/index.js`, import `axios` and `BASE_URL` and add the following:
 
 ```js
 
@@ -294,7 +294,7 @@ In `pages/index.js`, import `axios` and `BASE_URL` and add the following:
 
 
 
-In Next, an asynchronous function called `getInitialProps` is where API calls are made. With this function, we can fetch data using an API call and pass it as props to the page. `getInitialProps` only works in page components.
+In Next, an asynchronous function called `getInitialProps` is where API calls are made. With this function, we can fetch data using an API call and pass it as props to the page. `getInitialProps` only works in page components. -->
 
 In `pages/index.js`, import `axios` and `BASE_URL`:
 
@@ -303,9 +303,9 @@ import axios from "axios";
 import { BASE_URL } from "../constants/API";
 ```
 
-We will use the async/await method of making API calls rather than promises and their then methods.
+We will use the async/await method of making API calls rather than promises and `then` methods.
 
-After the function, add the following:
+After the `Index` function, add the following:
 
 ```js
 export async function getStaticProps() {
@@ -333,9 +333,9 @@ export async function getStaticProps() {
 
 Inside this the `getStaticProps` function we are using `axios` to make the API call. The return value from the API can be found on the `response.data` property. Logging this value will display the results in your editor's terminal, not the browser. This is because this call is happening on the server.
 
-We return an object from the function with a property of `props` that will become the `props` that get passed into our `Index` component.
+We return an object from the function with a property of `props` that will become the `props` object that gets passed into our `Index` component.
 
-Change the Index component to accept `props` as an argument and this time when we `console.log` the data it will be displayed in the browser console, i.e. on the client side.
+Change the Index component to accept `props` as an argument and this time when we `console.log` the data will be displayed in the browser console, i.e. on the client side.
 
 This is how `pages/index.js` will look now with the `about` link removed and a `map` over the `posts` prop to display each title:
 
