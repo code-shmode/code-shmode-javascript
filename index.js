@@ -48,7 +48,7 @@ try {
 
 			// content = content.substring(content.indexOf("```js"), content.indexOf("```\n"));
 
-			content = content.replace(/```js.*?```\n/g, "");
+			content = content.replace(/```js.*?```\\n/g, "");
 
 			console.log("con after", content.length);
 
