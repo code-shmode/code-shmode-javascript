@@ -4,19 +4,21 @@
 
 ---
 
-[Next.js](https://nextjs.org/) is a React framework that provides, amongst other things, server-side rendering (SSR), which will improve your site's SEO, and easy routing.
+[Next.js](https://nextjs.org/) is a React framework that provides, amongst other things, pre-rendered pages, which will improve your site's SEO, and easy routing.
+
+> This page uses yarn instead of npm. If you prefer using npm you can substitute `yarn` for `npm run` and `yarn add` for `npm install`.
 
 First we'll use Create Next App to create a new Next app. Run the following command in your command line or terminal:
 
 ```js
-    npx create-next-app nextjs-intro
+npx create-next-app nextjs-intro
 ```
 
 Change into that directory and start the app:
 
 ```js
-    cd nextjs-intro
-    yarn dev
+cd nextjs-intro
+yarn dev
 ```
 
 > If you have another app running on port 3000, you can set the port number with a `-p` switch:
@@ -170,7 +172,7 @@ Layout.propTypes = {
 };
 ```
 
-We want `children` to be a `node`, not another type like string or number. The list of prop types can be found [here](https://reactjs.org/docs/typechecking-with-proptypes.html).
+We want `children` to be a `node`, not another type like string or number. The list of prop types can be found in the <a href="https://reactjs.org/docs/typechecking-with-proptypes.html" target="_blank">official docs</a>.
 
 Full code for `Layout.js`:
 
@@ -246,7 +248,7 @@ export default function Index() {
 }
 ```
 
-### A note on server-side rendering
+### A note on pre-rendered pages
 
 Add the following to the `index` page:
 
@@ -258,14 +260,14 @@ If you view the source of the page (not inspect), you will find that text as wel
 
 This is not the case with apps generated with `create-react-app`. With that, only a very small amount of HTML is send to the browser and the rest is filled in by JavaScript.
 
-Server-side rendered apps will improve the ability of search engines to index your content.
+Pre-rendered apps will improve the ability of search engines to index your content.
 
 ## API calls in Next
 
 We want to store our API URL as a constant. In `constants/api.js`:
 
 ```js
-export const BASE_URL = "https://rickandmortyapi.com/api/character/";
+export const BASE_URL = "https://jsonplaceholder.typicode.com/posts";
 ```
 
 Because Next pages are pre-rendered on the server, we need an HTTP library we can use in both the server and client (browser) environments. The built-in `fetch` method in JavaScript only works in the browser.
@@ -276,7 +278,20 @@ Install [axios](https://github.com/axios/axios):
 yarn add axios
 ```
 
-Next provides two kinds of pre-rendering: static and server rendering. You can read more about the differences [here](/server/faq/static-vs-server-side-rendering).
+Next provides two different kinds of pre-rendering: static generation and server-side rendering. You can read more about the differences between those terms [here](/server/faq/static-vs-server-side-rendering).
+
+For each page you can choose whether to staticly generate it or server-side render it. To do the former you would use the async function `getStaticProps`, and for the latter you'd use the `getServerSideProps` async function.
+
+In this example we will use `getStaticProps`.
+
+To use it we need to export it from the same file our page function is in.
+
+In `pages/index.js`, import `axios` and `BASE_URL` and add the following:
+
+```js
+
+```
+
 
 
 In Next, an asynchronous function called `getInitialProps` is where API calls are made. With this function, we can fetch data using an API call and pass it as props to the page. `getInitialProps` only works in page components.
@@ -293,34 +308,36 @@ We will use the async/await method of making API calls rather than promises and 
 After the function, add the following:
 
 ```js
-Index.getInitialProps = async function () {
+export async function getStaticProps() {
 	// in case there is an error in the API call
 	// we'll send an empty array in as the prop
 	let posts = [];
 
 	try {
 		const response = await axios.get(BASE_URL);
-		const data = response.data;
-		const results = data.results;
-		console.log(results);
+		// the log here will happen on the server, you can check the console in your editor
+		console.log(response.data);
+		posts = response.data;
 	} catch (error) {
 		console.log(error);
 	}
 
-	// the object we return here will become the props in the page component
+	// the props object we return here will become the props in the component
 	return {
-		posts: results,
+		props: {
+			posts: posts,
+		},
 	};
-};
+}
 ```
 
-Inside this async function we are using `axios` to make the API call. Once we've retrieved the property we want (in this case `results`), the `console.log` method will display the results in your terminal, not the browser. This is because this call is happening on the server.
+Inside this the `getStaticProps` function we are using `axios` to make the API call. The return value from the API can be found on the `response.data` property. Logging this value will display the results in your editor's terminal, not the browser. This is because this call is happening on the server.
 
-We return an object from the function that will become the `props` that get passed into our `Index` component.
+We return an object from the function with a property of `props` that will become the `props` that get passed into our `Index` component.
 
-Change your component to accept `props` as an argument and this time when we `console.log` the data will be displayed in the browser console.
+Change the Index component to accept `props` as an argument and this time when we `console.log` the data it will be displayed in the browser console, i.e. on the client side.
 
-This is how `pages/index.js` should look now with an added prop type check, removal of the unecessary elements and a `map` over the `characters` prop:
+This is how `pages/index.js` will look now with the `about` link removed and a `map` over the `posts` prop to display each title:
 
 ```js
 import React from "react";
@@ -328,42 +345,39 @@ import PropTypes from "prop-types";
 import Head from "../components/head";
 import Layout from "../components/layout/Layout";
 import axios from "axios";
-import { BASE_URL } from "../constants/API";
+import { BASE_URL } from "../constants/api";
 
 export default function Index(props) {
 	return (
 		<Layout>
 			<Head title="Next Intro" />
 
-			{props.characters.map((character) => {
-				return <div key={character.id}>{character.name}</div>;
+			{props.posts.map((post) => {
+				return <h3 key={post.id}>{post.title}</h3>;
 			})}
 		</Layout>
 	);
 }
 
-Index.propTypes = {
-	characters: PropTypes.arrayOf(PropTypes.object),
-};
-
-Index.getInitialProps = async function () {
+export async function getStaticProps() {
 	// in case there is an error in the API call
 	// we'll send an empty array in as the prop
-	let characters = [];
+	let posts = [];
 
 	try {
 		const response = await axios.get(BASE_URL);
-		const data = response.data;
-		// data.results is the array of characters
-		characters = data.results;
-		console.log(characters);
+		// the log here will happen on the server, you can check the console in your editor
+		console.log(response.data);
+		posts = response.data;
 	} catch (error) {
 		console.log(error);
 	}
 
-	// the object we return here will become the props in the page component
+	// the props object we return here will become the props in the component
 	return {
-		characters: characters,
+		props: {
+			posts: posts,
+		},
 	};
-};
+}
 ```
