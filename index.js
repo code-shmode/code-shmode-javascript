@@ -35,7 +35,10 @@ try {
 			if (content.indexOf("#") !== -1) {
 				title = content.substring(content.indexOf("# ") + 2, content.indexOf("\n")).trim();
 
-				content.replace(title, "").trim();
+				content = content.replace(title, "").trim();
+
+				content = content.replace(/```js.*?```/g, "");
+
 				console.log(content);
 			}
 
