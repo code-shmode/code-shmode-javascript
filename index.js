@@ -37,16 +37,18 @@ try {
 
 				content = content.replace(title, "").trim();
 
-				console.log(content);
+				// console.log(content);
 			}
 
-			console.log("ndexOf ```js", content.indexOf("```js"));
+			// console.log("ndexOf ```js", content.indexOf("```js"));
 
-			console.log("ndexOf ```", content.indexOf("```\n"));
+			// console.log("ndexOf ```", content.indexOf("```\n"));
 
 			console.log("con bef", content.length);
 
-			content = content.replace(/```js.*```\n/g, "");
+			content = content.substring(content.indexOf("```js"), content.indexOf("```\n"));
+
+			// content = content.replace(/```js.*```\n/g, "");
 
 			console.log("con after", content.length);
 
