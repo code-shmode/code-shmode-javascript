@@ -209,7 +209,7 @@ export default function Layout(props) {
 
 In both `pages/index.js` and `pages/about.js`, import the `Layout` component and replace the fragment tags `<></>` with this component.
 
-How `pages/index.js` should look now:
+How `pages/index.js` should look noww: 
 
 ```js
 import React from "react";
