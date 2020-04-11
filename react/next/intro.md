@@ -268,13 +268,16 @@ We want to store our API URL as a constant. In `constants/api.js`:
 export const BASE_URL = "https://rickandmortyapi.com/api/character/";
 ```
 
-Because Next is server-side rendered, we need an HTTP library we can use in both the server and client (browser) environments. The built-in `fetch` method in JavaScript only works in the browser.
+Because Next pages are pre-rendered on the server, we need an HTTP library we can use in both the server and client (browser) environments. The built-in `fetch` method in JavaScript only works in the browser.
 
 Install [axios](https://github.com/axios/axios):
 
 ```js
 yarn add axios
 ```
+
+Next provides two kinds of pre-rendering: static and server rendering. You can read more about the differences [here](/server/faq/static-vs-server-side-rendering).
+
 
 In Next, an asynchronous function called `getInitialProps` is where API calls are made. With this function, we can fetch data using an API call and pass it as props to the page. `getInitialProps` only works in page components.
 
