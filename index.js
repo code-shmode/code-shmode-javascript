@@ -1,11 +1,9 @@
 const core = require("@actions/core");
-const github = require("@actions/github");
 const fs = require("fs");
 const algoliasearch = require("algoliasearch");
 
 const client = algoliasearch("WL4Z3D2OUG", core.getInput("algoliaAdminKey"));
 const index = client.initIndex("code-shmode");
-const section = "javascript/";
 
 try {
 	// add/update files
@@ -25,8 +23,7 @@ try {
 			!file.includes("LICENCE.md") &&
 			!file.includes("index.md")
 		) {
-			const path = file.replace(".md", "");
-			const objectID = section + path;
+			const objectID = file.replace(".md", "");
 
 			let content = fs.readFileSync(file, "utf8");
 
@@ -48,14 +45,9 @@ try {
 		}
 	});
 
-	index
-		.saveObjects(data)
-		.then(w => {
-			console.log(w);
-		})
-		.catch(err => {
-			console.log("error adding/updating", err);
-		});
+	console.log("Data", data)
+
+	index.saveObjects(data)
 
 	// delete files
 	const deletedFiles = core.getInput("deleted-files");
@@ -70,14 +62,8 @@ try {
 		deletedData.push(objectID);
 	});
 
-	index
-		.deleteObjects(deletedData)
-		.then(success => {
-			// console.log(success)
-		})
-		.catch(err => {
-			console.log("error deleting", err);
-		});
+	index.deleteObjects(deletedData)
+
 } catch (error) {
 	core.setFailed(error.message);
 }
