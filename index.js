@@ -46,7 +46,7 @@ try {
 
 			console.log("con bef", content.length);
 
-			content = content.replace(/```js.*```/g, "");
+			content = content.replace(/```js.*```\n/g, "");
 
 			console.log("con after", content.length);
 
