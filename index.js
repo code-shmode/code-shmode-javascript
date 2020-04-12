@@ -43,6 +43,8 @@ try {
 			console.log("con bef", content.length);
 
 			content = content.replace(/```js([\s\S]*?)```\n/g, "");
+			content = content.replace(/\[/g, "").replace(/\]/g, "");
+			content = content.replace(/\(([\s\S]*?)\)/g, "");
 
 			// content = content.substring(content.indexOf("```js"), content.indexOf("```\n"));
 
