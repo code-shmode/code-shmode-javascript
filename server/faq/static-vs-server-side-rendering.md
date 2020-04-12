@@ -1,4 +1,4 @@
-## Static rendering vs server rendering
+# Static rendering vs server rendering
 
 Both these techniques create HTML on the server and send it to the browser. The difference lies in when the HTML is created.
 

@@ -1,4 +1,4 @@
-## Scope
+# Scope
 
 `Scope` refers to where variables are available to be used.
 

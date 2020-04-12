@@ -1,4 +1,4 @@
-## IIFE
+# IIFE
 
 IIFE stands for `I`nstantly `I`nvoked `F`unction `E`xpression.
 

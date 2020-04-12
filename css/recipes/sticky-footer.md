@@ -1,4 +1,4 @@
-# Sticky footer
+## Sticky footer
 
 A sticky footer with flexbox.
 
@@ -7,13 +7,13 @@ A sticky footer with flexbox.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
-<body>
-    <div class="container">
-        All the content apart from the footeraaa
-    </div>
-    <footer>Footer</footer> 
-</body>
+	<head></head>
+	<body>
+		<div class="container">
+			All the content apart from the footeraaa
+		</div>
+		<footer>Footer</footer>
+	</body>
 </html>
 ```
 
@@ -27,7 +27,7 @@ body {
 
 body {
 	display: flex;
-	flex-direction: column; 
+	flex-direction: column;
 }
 
 .container {
@@ -37,4 +37,4 @@ body {
 footer {
 	flex-shrink: 0;
 }
-``` 
+```

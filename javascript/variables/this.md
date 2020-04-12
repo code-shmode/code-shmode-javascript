@@ -1,4 +1,4 @@
-## this
+# this
 
 The `this` keyword is often a source of confusion to new JavaScript developers.
 
