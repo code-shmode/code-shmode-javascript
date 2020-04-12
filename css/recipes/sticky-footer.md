@@ -1,4 +1,4 @@
-## Sticky footer
+# Sticky footer
 
 A sticky footer with flexbox.
 
