@@ -1,4 +1,4 @@
-# Introduction to Next.js
+## Introduction to Next.js
 
 [Next.js](https://nextjs.org/) is a React framework that provides, amongst other things, pre-rendered pages, which will improve your site's SEO, and easy routing.
 

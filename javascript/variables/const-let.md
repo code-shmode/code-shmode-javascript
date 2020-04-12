@@ -1,4 +1,4 @@
-# `const` and `let`
+## `const` and `let`
 
 `ES6` introduced the `const` and `let` keywords for declaring variables.
 

@@ -1,4 +1,4 @@
-# Hoisting
+## Hoisting
 
 Function declarations are "lifted up" - hoisted - by the JavaScript engine to the top of the code, no matter where they are written. This makes them available to be called from anywhere, including before they are declared.
 
@@ -17,7 +17,7 @@ Function expressions are not hoisted, they are not lifted up from where they are
 ```js
 aFunctionExpression();
 
-const aFunctionExpression = function() {
+const aFunctionExpression = function () {
 	console.log("I am a function expression");
 };
 ```

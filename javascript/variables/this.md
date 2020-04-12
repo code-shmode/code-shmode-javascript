@@ -1,4 +1,4 @@
-# this
+## this
 
 The `this` keyword is often a source of confusion to new JavaScript developers.
 
@@ -20,9 +20,9 @@ Inside a regular function belonging to an object, `this` will point to its paren
 
 ```js
 const myObject = {
-	myFunction: function() {
+	myFunction: function () {
 		console.dir(this);
-	}
+	},
 };
 
 myObject.myFunction();
@@ -35,9 +35,9 @@ Using `this` you can access other properties of the object. If the object above 
 ```js
 const myObject = {
 	number: 10,
-	myFunction: function() {
+	myFunction: function () {
 		console.dir(this.number);
-	}
+	},
 };
 
 myObject.myFunction();
@@ -53,7 +53,7 @@ console.dir(this);
 // Window
 
 const myObject = {
-	myFunction: () => console.dir(this)
+	myFunction: () => console.dir(this),
 };
 
 myObject.myFunction();

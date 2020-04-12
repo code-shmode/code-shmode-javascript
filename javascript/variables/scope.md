@@ -1,4 +1,4 @@
-# Scope
+## Scope
 
 `Scope` refers to where variables are available to be used.
 
@@ -115,7 +115,7 @@ One way to avoid placing variables in the global scope is to use an [IFFE](../fu
 Because variables declared inside a function are part of their own scope, developers often use the following pattern to avoid `polluting the global scope`, as it's known.
 
 ```js
-(function() {
+(function () {
 	const number1 = 8;
 	var number2 = 10;
 })();
