@@ -195,7 +195,7 @@ export default function Layout(props) {
 							<a>
 								<Nav.Link as="span">About</Nav.Link>
 							</a>
-						</Link>sss
+						</Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
