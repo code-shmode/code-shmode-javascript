@@ -10,7 +10,7 @@ A sticky footer with flexbox.
 	<head></head>
 	<body>
 		<div class="container">
-			All the content apart from the footeraaa
+			All the content apart from the footer
 		</div>
 		<footer>Footer</footer>
 	</body>
