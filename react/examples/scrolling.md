@@ -21,9 +21,10 @@ Then you attach them to an element using the ref prop.
 
 The `div` with the `class` `App` will now be avaialable on the `current` property of the `ref`:
 
-````js
+```js
 console.log(appRef.current);
 // output: <div class="App"></div>
+```
 
 Once you have access to a DOM element via a ref, you can call native JavaScript methods and properties on it like `scrollTo`.
 
@@ -33,5 +34,4 @@ appRef.current.scrollTo({ behavior: "smooth", top: 0 });
 
 You should always use refs when trying to access DOM elements in React, rather than native methods like `document.querySelector` or `getElementById`. React creates and uses its own virtual DOM to build out the real DOM, and if you use native JS methods the elements you are trying to select may not be available yet in the real DOM.
 
-The relevant code is in `src/App.js`, with all the CSS in `App.css`.
-````
+The relevant code is in `src/App.js`, with all the CSS in `App.css`. The CSS includes snap scrolling properties.
