@@ -5,6 +5,8 @@
 -   <a href="https://react-scroll-example.netlify.app/" target="_blank">Demo</a>
 -   <a href="https://github.com/code-shmode/react-scroll-example" target="_blank">Repo</a>
 
+---
+
 This example uses `refs` and the native JavaScript method `scrollTo` to scroll between sections on a page.
 
 Refs are references to the underlying native HTML elements (like div, button, input etc).
@@ -17,7 +19,9 @@ const refApp = useRef(null);
 
 Then you attach them to an element using the ref prop.
 
+```jsx
 <div className="App" ref={refApp}>
+```
 
 The `div` with the `class` `App` will now be avaialable on the `current` property of the `ref`:
 
