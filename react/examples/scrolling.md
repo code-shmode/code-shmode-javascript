@@ -38,4 +38,4 @@ appRef.current.scrollTo({ behavior: "smooth", top: 0 });
 
 You should always use refs when trying to access DOM elements in React, rather than native methods like `document.querySelector` or `getElementById`. React creates and uses its own virtual DOM to build out the real DOM, and if you use native JS methods the elements you are trying to select may not be available yet in the real DOM.
 
-The relevant code is in `src/App.js`, with all the CSS in `App.css`. The CSS includes snap scrolling properties.
+The relevant code is in <a href="https://github.com/javascript-repositories/react-scroll-example/blob/master/src/App.js" target="_blank">src/App.js</a>, with all the CSS in <a href="https://github.com/javascript-repositories/react-scroll-example/blob/master/src/App.css">App.css</a>. The CSS includes snap scrolling properties.
