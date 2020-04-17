@@ -48,6 +48,12 @@ To fetch a list of posts you would use the endpoint:
 https://public-api.wordpress.com/wp/v2/sites/your-domain.wordpress.com/posts
 ```
 
+You can fetch a page by its id:
+
+```html
+https://public-api.wordpress.com/wp/v2/sites/your-domain.wordpress.com/pages/8
+```
+
 ### Developer console.
 
 Wordpress.com provides a console for browsing the API at <a href="https://developer.wordpress.com/docs/api/console/">https://developer.wordpress.com/docs/api/console/</a>.
