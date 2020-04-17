@@ -8,4 +8,4 @@ Create an account <a href="https://wordpress.com/start/user?ref=logged-out-homep
 
 Once signed up, enter a domain you would like to use and select the free subdomain option below:
 
-![Wordpress.com subdomain](/images/wordpress/wp-subdomain.png)
+![Wordpress.com subdomain](wordpress/wp-subdomain.png)
