@@ -1,6 +1,6 @@
 # Wordpress.com API
 
-This will demonstrate how to access the API of a site hosted on Wordpress.com.
+This will demonstrate how to access the API of a free site hosted on Wordpress.com.
 
 ---
 
@@ -10,17 +10,17 @@ Once signed up, enter a domain you would like to use and select the free subdoma
 
 ![Wordpress.com subdomain](/images/wordpress/wp-subdomain.png "700")
 
-Select Start with a free site on the next page.
+Select <b>Start with a free site</b> on the next page.
 
 ![Wordpress.com free site](/images/wordpress/wp-free-site.png "400")
 
-Verify your email address via the email you receive via the sign up process.
+Verify your email address via the email you receive through the sign up process.
 
 Once confirmed, launch your site.
 
 ![Wordpress.com launch site](/images/wordpress/wp-launch-site.png "350")
 
-Select `Skip Purchase` on the next page.
+Select <b>Skip Purchase</b> on the next page.
 
 ![Wordpress.com skip purchase](/images/wordpress/wp-skip-purchase.png "350")
 
