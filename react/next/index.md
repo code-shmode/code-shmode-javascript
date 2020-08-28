@@ -5,4 +5,3 @@ Next.js is a React framework that makes it easy to be build static and server-si
 <div class="menu"></div>
 
 -   [Intro with API calls](intro)
--   [Test entry](testentry)
