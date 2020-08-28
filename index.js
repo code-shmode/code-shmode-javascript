@@ -36,19 +36,15 @@ try {
 				title = content.substring(content.indexOf("# ") + 2, content.indexOf("\n")).trim();
 
 				content = content.replace(title, "").trim();
-
-				// console.log(content);
 			}
 
-			console.log("con bef", content.length);
+			console.log("content before", content.length);
 
 			content = content.replace(/```js([\s\S]*?)```\n/g, "");
 			content = content.replace(/\[/g, "").replace(/\]/g, "");
 			content = content.replace(/\(([\s\S]*?)\)/g, "");
 
-			// content = content.substring(content.indexOf("```js"), content.indexOf("```\n"));
-
-			console.log("con after", content.length);
+			console.log("content after", content.length);
 
 			const object = {
 				objectID,
@@ -58,8 +54,6 @@ try {
 			data.push(object);
 		}
 	});
-
-	// console.log("data", data);
 
 	index
 		.saveObjects(data)
