@@ -71,8 +71,8 @@ try {
 	const deletedData = [];
 
 	deletedFileArray.forEach((file) => {
-		const path = file.replace(".md", "");
-		const objectID = section + path;
+		const objectID = file.replace(".md", "");
+		// const objectID = section + path;
 
 		deletedData.push(objectID);
 	});
